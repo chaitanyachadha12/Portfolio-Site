@@ -25,7 +25,7 @@ const UserIcon = async ({ promise }) => {
 	const user = await promise;
 
 	return (
-		<Image alt='👨‍💻' width={100} height={100} src={user.avatar_url || data.avatarUrl} className="float-right rounded-full mx-4" />
+		<Image alt='👨‍💻' width={200} height={200} src={user.avatar_url || data.avatarUrl} className="float-right rounded-full mx-4" />
 	);
 };
 
@@ -34,22 +34,8 @@ const UserText = async ({ promise }) => {
 	const user = await promise;
 
 	return (
-		<p>Hi, my name is {user.name || data.displayName}{'. '}{user.bio}</p>
+		<p>Hi, My name is {user.name || data.displayName}{'. '}{user.bio}</p>
 	);
-};
-
-const TryYourself = ({ customUsername }) => {
-
-	const href = customUsername ? '/' : '/search';
-
-	return <Link
-		href={href}
-		className="text-lg duration-500 text-zinc-500 hover:text-zinc-300 border-dashed p-2 rounded border-2 border-zinc-500 hover:border-zinc-300"
-	>
-		{
-			customUsername ? 'Showing: ' + customUsername + ', click to cancel ❌' : 'Try yourself'
-		}
-	</Link>;
 };
 
 const LandingComponent = async ({ searchParams: { customUsername } }) => {
@@ -70,13 +56,12 @@ const LandingComponent = async ({ searchParams: { customUsername } }) => {
 							{item.name}
 						</Link>
 					))}
-					<TryYourself customUsername={customUsername} />
 				</ul>
 			</nav>
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
 			<h1 className="flex items-center z-10 text-4xl hover:scale-110 text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text bg-white p-5">
-				{username}
+				Chaitanya Chadha
 				<UserIcon promise={promise} />
 			</h1>
 
